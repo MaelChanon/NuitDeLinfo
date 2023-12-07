@@ -88,6 +88,8 @@ const tick = () => {
   // Update controls
   controls.update();
   sphere.rotation.y = elapsedTime * 0.1;
+  //sphere.rotation.z = -elapsedTime * 0.01;
+
 
   // Render
   renderer.render(scene, camera);
