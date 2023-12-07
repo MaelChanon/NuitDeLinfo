@@ -5,9 +5,17 @@ module.export = class {
         this.currentHealth = 0
         this.gold = 0
         this.config = config
+        this.categories = {} 
         this.factories = {}
+        this.multiplier = 1
     }
-    addFactoryList(name,factoryList){
+    addFactoryList(category, name,factoryList){
+        if(this.categories[category]){
+            this.categories[category] = []
+            this.categories[category].push({
+                
+            })
+        }
         this.factories[name] = factoryList
     }
     getFactories(){
