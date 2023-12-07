@@ -1,0 +1,23 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    overflow: hidden;
+}
+
+body{
+    display: block;
+}
+
+.webgl
+{
+    top: 300;
+    left: 0;
+    outline: none;
+    width: 50%;
+}
