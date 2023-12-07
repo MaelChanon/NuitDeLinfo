@@ -24,21 +24,36 @@ const geometry = new THREE.SphereGeometry( 15, 32, 16 );
 const material = new THREE.MeshBasicMaterial( { 
 map :earthTexture } ); 
 const sphere = new THREE.Mesh( geometry, material );
+sphere.rotation.x = 0.63
+sphere.rotation.y = -1.78
 scene.add( sphere );
-
 
 /**
  * Sizes
  */
+function getSizeOfDiv(divId) {
+
+  if (divId) {
+    const width = divId.offsetWidth;
+    const height = divId.offsetHeight;
+
+    return { width, height };
+  } else {
+    console.error("La div avec l'ID spécifié n'a pas été trouvée.");
+    return null;
+  }
+}
+const divSize = getSizeOfDiv(canvas);
 const sizes = {
-  width: window.innerWidth,
-  height: window.innerHeight,
+  width: divSize.width,
+  height: divSize.height,
 };
 
 window.addEventListener("resize", () => {
   // Update sizes
-  sizes.width = window.innerWidth;
-  sizes.height = window.innerHeight;
+  const divSize = getSizeOfDiv(canvas);
+  sizes.width = divSize.width;
+  sizes.height = divSize.height;
 
   // Update camera
   camera.aspect = sizes.width / sizes.height;
@@ -59,9 +74,9 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.x = 3;
-camera.position.y = 30;
-camera.position.z = 3;
+camera.position.x = 0;
+camera.position.y = 0;
+camera.position.z = 30;
 scene.add(camera);
 
 // Controls
@@ -87,8 +102,7 @@ const tick = () => {
 
   // Update controls
   controls.update();
-  sphere.rotation.y = elapsedTime * 0.1;
-  //sphere.rotation.z = -elapsedTime * 0.01;
+  sphere.rotation.y = elapsedTime * 0.2;
 
 
   // Render
