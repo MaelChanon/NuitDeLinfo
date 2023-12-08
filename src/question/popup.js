@@ -1,5 +1,5 @@
 import config from "../back/config"
-
+import data from "../back/bootstrap"
 let questions = config.questions;
 
 let popup = document.getElementById("popup");
@@ -19,7 +19,7 @@ window.onload = function(){
 }
 
 function timerEvent() {
-  let min = 1, max = 5;
+  let min = 10, max = 50;
   let rand = Math.floor(Math.random() * (max - min + 1) + min);
   console.log('Wait for ' + rand + ' seconds');
 
@@ -44,9 +44,11 @@ function handleResponse(event) {
 
   if(reponse==questions[index].reponse) {
     intituleQuestion.innerText = "Bonne Réponse !";
+    data.earth.addHealth(500);
   }
   else if(reponse!=questions[index].reponse) {
     intituleQuestion.innerText = "Mauvaise Réponse !";
+    data.earth.addGES(500);
   }
   questions.splice(index, 1);
 

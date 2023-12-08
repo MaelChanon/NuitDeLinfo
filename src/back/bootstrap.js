@@ -3,6 +3,7 @@ import config from "./config"
 import Earth from "./earth"
 import factoryList from "./energyFactory/factoryList"
 const bootstrap = (config)=>{
+    console.log("fezfezf")
     const factoryFactory = new FactoryFactory()
     const earth = new Earth(
         config.earth.maxHealth,

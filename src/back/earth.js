@@ -80,14 +80,25 @@ export default class earth{
         return this.MAXHEALTH
     }
     addGES(value){
-        this.currentGES += value
+        if(this.getMaxGES() - this.getCurrentGES() >= value) {
+            this.currentGES += value
+        }
+        else {
+            this.currentGES = this.getMaxGES()
+        }
+        
         return this.currentGES
     }
     getGold(){
         return this.gold
     }
     addHealth(value){
-        this.currentHealth += value
+        if(this.getMaxHealth() - this.getCurrentHealth() >= value) {
+            this.currentHealth += value
+        }
+        else {
+            this.currentHealth = this.getMaxHealth()
+        }
         return this.currentHealth
     }
     click(){
