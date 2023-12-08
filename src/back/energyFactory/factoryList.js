@@ -8,7 +8,6 @@ export default class {
         return this.limit
     }
     pushFactory(factory){
-        console.log("fezfzeffze ", this.getLength( ))
         if(this.getLength() >= this.getLimit()){
             return false
         }

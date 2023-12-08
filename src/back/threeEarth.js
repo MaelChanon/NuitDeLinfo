@@ -206,10 +206,11 @@ function categorieClick(event){
   else{
     console.log("noooooononono")
   }
-  const FactoryList = data.earth.getFactoryList(factory)
-  console.log(`#${factory} .factory_title`)
-  const child = document.querySelector(`#${event.target.parentNode.getAttribute('id')} .factory_title`)
-  console.log(child)
+  const FactoryList = data.earth.getFactoryList(event.target.parentNode.getAttribute('id'))
+  console.log(FactoryList)
+  console.log(`#${factory} .factory_limit`)
+  const child = document.querySelector(`#${event.target.parentNode.getAttribute('id')} .factory_limit `)
+  console.log(child.innerText = `${FactoryList.getLength()}/${FactoryList.getLimit()}` )
 }
 function repeat(){
   if(data.earth.tick()){

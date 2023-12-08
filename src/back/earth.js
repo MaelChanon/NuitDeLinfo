@@ -43,7 +43,7 @@ export default class earth{
     getFactoryList(name){
         for(let category in this.categories) {
             if(this.categories[category].hasOwnProperty(name)){
-                const factory = this.categories[category][name].popFactory()
+                const factory = this.categories[category][name]
                 return factory
             }
         }
