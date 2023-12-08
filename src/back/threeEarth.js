@@ -1,12 +1,5 @@
 import * as THREE from "three";
-import * as dat from "lil-gui";
-
 import data from "./bootstrap"
-
-const gui = new dat.GUI({
-  width: 390,
-});
-
 
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
