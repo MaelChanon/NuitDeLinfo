@@ -38,6 +38,66 @@ body{
     display: block;
 }
 
+.barres{
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    margin-top: 20vh;
+    width: 100%;
+}
+
+.barres img{
+width: 40px;
+}
+
+.barre1 img{
+    padding-right: 10px;
+    }
+
+.barre2 img{
+    padding-left: 10px;
+    }
+
+.progress-container, .progress-container2{
+    height: 20px;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.barre2{
+    justify-content: flex-end;
+    margin-right: 4vw;
+}
+
+.barre1{
+    justify-content: flex-start;
+    margin-left: 4vw;
+}
+
+.barre1, .barre2{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+  
+.progress-bar, .progress-bar2 {
+    height: 100%;
+    transition: width 1s linear; /* Transition plus lente */
+}
+
+.progress-bar{
+    width: 100%; /* Commencez avec la barre remplie à 100% */
+    background-color: #4caf50;
+}
+
+.progress-bar2{
+    width: 0%; /* Commencez avec la barre remplie à 0% */
+    background-color: #8b0000 ;
+}
+
 .webgl
 {
     position: static;
