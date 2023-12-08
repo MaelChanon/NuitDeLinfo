@@ -19,6 +19,24 @@ const config = {
                 }
             ]
         }
+    ],
+    questions: [
+        {
+            intitule: "blablabla0",
+            reponse: "oui"
+        },
+        {
+            intitule: "blablabla1",
+            reponse: "non"
+        },
+        {
+            intitule: "blablabla2",
+            reponse: "oui"
+        },
+        {
+            intitule: "blablabla3",
+            reponse: "non"
+        }
     ]
     
 }
