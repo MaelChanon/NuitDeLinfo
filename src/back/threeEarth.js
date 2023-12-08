@@ -141,7 +141,9 @@ function categorieClick(event){
     console.log("noooooononono")
   }
   const FactoryList = data.earth.getFactoryList(factory)
-  // child = document.querySelector(`#${factory} .${factory_title}`)
+  console.log(`#${factory} .factory_title`)
+  const child = document.querySelector(`#${event.target.parentNode.getAttribute('id')} .factory_title`)
+  console.log(child)
 }
 function repeat(){
   if(data.earth.tick()){
