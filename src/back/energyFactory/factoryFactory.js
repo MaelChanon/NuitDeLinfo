@@ -1,13 +1,14 @@
-const Factory = require("./energyFactory/factory")
-module.export = class {
+import Factory from "./factory"
+export default class FactoryFactory{
     constructor() { 
         this.factoryInfo = {}
     }
-    addFactoryType(name, category, healthDamage,GESDamage,multiplier,passifGold){
+    addFactoryType(name, category, price, healthDamage,GESDamage,multiplier,passifGold){
         this.factoryInfo[name] = {
             category,
             healthDamage,
             GESDamage,
+            price,
             multiplier,
             passifGold,
         }

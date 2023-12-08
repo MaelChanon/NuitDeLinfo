@@ -1,4 +1,4 @@
-module.export = class {
+export default class Factory{
     constructor(name,category, healthDamage,GESDamage,multiplier,passifGold){
         this.name = name
         this.category = category
@@ -9,6 +9,18 @@ module.export = class {
     }
     gethealthDamage(){
         return this.healthDamage
+    }
+    getPassifGold(){
+        return this.passifGold
+    }
+    getCategories(){
+        return this.category
+    }
+    getMultiplier(){
+        return this.multiplier
+    }
+    getName(){
+        return this.name
     }
     getGESDamage(){
         return this.GESDamage
