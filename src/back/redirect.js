@@ -2,10 +2,10 @@
 
 // Fonction pour vérifier le statut 404 et rediriger si nécessaire
 function check404AndRedirect() {
-    // Vérifier si la page a un statut 404
-    if (window.location.href.indexOf("404") > -1) {
+    // Vérifier si la page a un statut 404 en utilisant le statut de réponse HTTP
+    if (document.querySelector("meta[name='prerender-status-code'][content='404']")) {
         // Rediriger vers la page HTML souhaitée
-        window.location.href = "./404.html";
+        window.location.href = "src/404.html";
     }
 }
 
