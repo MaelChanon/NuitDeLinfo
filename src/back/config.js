@@ -2,7 +2,7 @@ const config = {
     earth: {
         maxHealth: 10000,
         maxGES: 10000,
-        healthDamage: 1
+        healthDamage: 100
     },
     categories: [
         {
@@ -11,7 +11,7 @@ const config = {
                 {
                     type: 'charbon',
                     price: 11111,
-                    limit:11111,
+                    limit:11,
                     healthDamages:11111,
                     GESDamages: 11111,
                     multiplier: 1,

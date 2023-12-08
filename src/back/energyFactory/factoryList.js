@@ -8,14 +8,18 @@ export default class {
         return this.limit
     }
     pushFactory(factory){
-        if(this.getLength >= this.getLimit()){
+        console.log("fezfzeffze ", this.getLength( ))
+        if(this.getLength() >= this.getLimit()){
             return false
         }
         this.factories.push(factory)
         return true
     }
     popFactory() {
-        return this.factories.pop()
+        if(this.factories.pop()){
+            return true
+        }
+        return false
     }
     getLength(){
         return this.factories.length
