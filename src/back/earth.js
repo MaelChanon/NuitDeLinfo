@@ -70,6 +70,9 @@ export default class earth{
         this.currentHealth += value
         return this.currentHealth
     }
+    getGold(){
+        return this.gold
+    }
     click(){
         this.gold += this.multiplier
         return this.multiplier

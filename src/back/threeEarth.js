@@ -163,7 +163,8 @@ canvas.addEventListener("click", (event) => {
   // Si la sphère est cliquée
   if (intersects.length > 0) {
     // Faites quelque chose ici, par exemple changez la couleur de la sphère
-    console.log("caca")
+    data.earth.click();
+    console.log(data.earth.getGold())
   }
 }); 
 
@@ -187,3 +188,12 @@ const tick = () => {
 };
 console.log(data)
 tick();
+
+setInterval(repeat,1000)
+
+function repeat(){
+  if(data.earth.tick()){
+    console.log("mort")
+  }
+  console.log("non")
+}
