@@ -31,7 +31,8 @@ const bootstrap = (config)=>{
     }
     return {
         earth,
-        factoryFactory
+        factoryFactory,
+        config
     }
 }
 const data = bootstrap(config)
