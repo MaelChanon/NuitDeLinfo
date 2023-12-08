@@ -4,15 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tetris Game</title>
+    <title>Error 404 - Tetris Game</title>
     <style>
+        @font-face {
+            font-family: 'SpaceGalaxy';
+            src: url('assets/fonts/Space_Galaxy.ttf') format('ttf'),
+        }
+
         body {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+            font-family: 'MaPolice', sans-serif;
         }
         
         .canvas {
@@ -30,6 +37,8 @@
 </head>
 
 <body>
+    <h1>Error 404 - Tetris game</h1>
+    <button id="playBtn"">PLAY</button>
     <div class="canvas">
         <canvas id="tetrisCanvas" width="300" height="600"></canvas>
         <div id="tetrisInfo">
@@ -43,6 +52,8 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            const playBtn = document.getElementById("playBtn");
+
             const canvas = document.getElementById("tetrisCanvas");
             const context = canvas.getContext("2d");
 
@@ -54,15 +65,20 @@
             const blockSize = 30;
             const cols = 10;
             const rows = 20;
-            const board = Array.from({ length: rows }, () => Array(cols).fill(0));
-
+            let board = Array.from({ length: rows }, () => Array(cols).fill(0));
 
             let currentPieceIndex;
             let currentPiece;
             let nextPieceIndex;
             let nextPiece;
+
             let score = 0;
-            let gameSpeed = 500;
+            const scoreStep = 10;
+
+            const startGameSpeed = 500;
+            let gameSpeed = startGameSpeed;
+            const maxGameSpeed = 40;
+            const gameSpeedStep = 20;
 
             // Tetromino shapes
             const tetrominos = [
@@ -129,6 +145,18 @@
             function isValidMove() {
                 for (let row = 0; row < currentPiece.length; row++) {
                     for (let col = 0; col < currentPiece[row].length; col++) {
+                        if (currentPiece[row][col] && (board[currentPieceY + row] && board[currentPieceY + row][currentPieceX + col]) !== 0) {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+
+            // Function to check if the next move is valid
+            function isValidNextMove() {
+                for (let row = 0; row < currentPiece.length; row++) {
+                    for (let col = 0; col < currentPiece[row].length; col++) {
                         if (currentPiece[row][col] && (board[currentPieceY+1 + row] && board[currentPieceY+1 + row][currentPieceX + col]) !== 0) {
                             return false;
                         }
@@ -154,11 +182,16 @@
                     if (board[row].every((block) => block >= 1)) {
                         board.splice(row, 1);
                         board.unshift(Array(cols).fill(0));
-                        score += 10;
-                        gameSpeed = Math.max(30, gameSpeed-10)
-                        scoreText.innerText = "Score : " + score;
+                        gameSpeed = Math.max(maxGameSpeed, gameSpeed-gameSpeedStep)
+                        updateScore(10)
                     }
                 }
+            }
+
+            // Function to update the score
+            function updateScore(n) {
+                score += n;
+                scoreText.innerText = "Score : " + score;
             }
 
             // Function to generate a random Tetromino
@@ -178,44 +211,55 @@
             }
 
             // Initialize the game
-            function init() { 
+            function init() {
+                // Reset
+                playBtn.style.visibility = "hidden";
+                board = Array.from({ length: rows }, () => Array(cols).fill(0));
+                score = 0;
                 scoreText.innerText = "Score : " + score;
-
+                gameSpeed = startGameSpeed;
                 nextPieceIndex = getRandomTetrominoIndex();
                 spawnTetromino();
 
+                // Delta time
                 let startTime = Date.now();
                 let endTime;
-                let timePassed;
+                let timePassed = 0;
 
                 // Game loop
                 function gameLoop() {
+                    // Calculate delta time
                     endTime = Date.now();
                     timePassed = endTime - startTime;
 
+                    // Draw
                     drawBoard();
                     drawPiece();
                     drawNextPiece();
 
+                    // Update
                     if (timePassed >= gameSpeed) {
                         startTime = endTime;
 
-                        if (isValidMove()) {   
+                        if (isValidNextMove()) {
+                            // Falling 
                             currentPieceY++;
                         }
                         else {
+                            // Next Piece
                             mergePiece()
                             removeCompletedRows();
                             spawnTetromino()
 
+                            // Game Over
                             if (!isValidMove()) {
-                                // Game over
                                 alert(`Game Over! Your score is ${score}`);
                                 document.location.reload();
                                 return;
                             }
                         }
                     }
+
                     requestAnimationFrame(gameLoop);
                 }
 
@@ -245,7 +289,7 @@
                         break;
 
                     case "ArrowDown":
-                        while (isValidMove()) {
+                        while (isValidNextMove()) {
                             currentPieceY++;
                         }
                         break;
@@ -268,8 +312,8 @@
                 }
             });
 
-            // Start the game
-            init();
+            // Start the game on click
+            playBtn.addEventListener("click", init);
         });
     </script>
 </body>
