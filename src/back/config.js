@@ -1,7 +1,7 @@
 const config = {
     earth: {
-        maxHealth: 11111,
-        maxGES: 11111,
+        maxHealth: 10000,
+        maxGES: 10000,
         healthDamage: 1
     },
     categories: [
