@@ -1,6 +1,13 @@
 import * as THREE from "three";
 import * as dat from "lil-gui";
 
+import data from "./bootstrap"
+
+const gui = new dat.GUI({
+  width: 390,
+});
+
+
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
 
@@ -19,7 +26,6 @@ const sphere = new THREE.Mesh( geometrySphere, materialSphere );
 sphere.rotation.x = 0.63
 sphere.rotation.y = -1.78
 scene.add( sphere );
-
 
 /**
  * Galaxy
@@ -186,5 +192,5 @@ const tick = () => {
   // Call tick again on the next frame
   window.requestAnimationFrame(tick);
 };
-
+console.log(data)
 tick();
