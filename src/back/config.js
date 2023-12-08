@@ -2,7 +2,7 @@ const config = {
     earth: {
         maxHealth: 10000,
         maxGES: 10000,
-        healthDamage: 1
+        healthDamage: 100
     },
     categories: [
         {
@@ -14,6 +14,7 @@ const config = {
                     limit: 50,
                     healthDamages:100,
                     GESDamages: 100,
+
                     multiplier: 1,
                     passifGold: 1,
                 },

@@ -14,5 +14,5 @@ export default {
         outDir: '../dist',
         emptyOutDir: true,
         sourcemap: true
-    }
+    },
 }

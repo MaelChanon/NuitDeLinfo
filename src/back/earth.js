@@ -6,6 +6,7 @@ export default class earth{
         this.tickGESDamage = 0
 
         this.currentHealth = health
+        this.MAXHEALTH = health
         this.HealthDamage = healthDamage
 
         this.gold = 0
@@ -36,7 +37,17 @@ export default class earth{
             this.passifGold += factory.getPassifGold( )
             return true
         }
+        
         return false
+    }
+    getFactoryList(name){
+        for(let category in this.categories) {
+            if(this.categories[category].hasOwnProperty(name)){
+                const factory = this.categories[category][name].popFactory()
+                return factory
+            }
+        }
+        return null
     }
     removeFactory(name) {
         for(let category in this.categories) {
@@ -59,12 +70,21 @@ export default class earth{
     getCurrentGES(){
         return this.currentGES
     }
+    getMaxGES(){
+        return this.MAXGES
+    }
     getCurrentHealth(){
         return this.currentHealth
+    }
+    getMaxHealth(){
+        return this.MAXHEALTH
     }
     addGES(value){
         this.currentGES += value
         return this.currentGES
+    }
+    getGold(){
+        return this.gold
     }
     addHealth(value){
         this.currentHealth += value
