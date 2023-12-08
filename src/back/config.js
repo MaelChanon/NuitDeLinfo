@@ -155,7 +155,7 @@ const config = {
         },
         {
             intitule: "Le nucléaire augmente les GES ?",
-            reponse: "oui"
+            reponse: "non"
         },
         {
             intitule: "Pensez-vous que ce n'est pas à vous d'agir ?",
