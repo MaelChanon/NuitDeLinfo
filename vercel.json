@@ -1,5 +1,10 @@
 {
-    "redirects": [
-      { "source": "/_error", "destination": "/404.html", "permanent": false }
-    ]
-  }
+  "cleanUrls": true,
+  "redirects": [
+      {
+          "source": "/(.*)",
+          "destination": "404.html",
+          "statusCode": 404
+      }
+  ]
+}
