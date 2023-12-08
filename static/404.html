@@ -180,7 +180,7 @@
 
             // Function to remove completed rows
             function removeCompletedRows() {
-                for (let row = rows - 1; row >= 0; row--) {
+                for (let row = 0; row < rows; row++) {
                     if (board[row].every((block) => block >= 1)) {
                         board.splice(row, 1);
                         board.unshift(Array(cols).fill(0));
