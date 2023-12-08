@@ -76,7 +76,7 @@ width: 40px;
     margin-left: 4vw;
 }
 
-.barre1, .barre2{
+.barre1, .barre2, #gold{
 display: flex;
 flex-direction: row;
 justify-content: center;
@@ -96,6 +96,39 @@ align-items: center;
 .progress-bar2{
     width: 0%; /* Commencez avec la barre remplie à 0% */
     background-color: #8b0000 ;
+}
+
+#gold{
+    color: #FFFFFF;
+}
+
+#data{
+    position: absolute;
+    color: white;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+#categories{
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    bottom: 20px;
+    width: 100%;
+}
+
+#Energie, #Transports, #Citoyens{
+}
+
+.factory{
+    display: flex;
+    flex-direction: row;
+}
+
+.factory_limit{
+    padding-left: 10px;
 }
 
 .webgl
