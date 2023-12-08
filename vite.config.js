@@ -15,7 +15,4 @@ export default {
         emptyOutDir: true,
         sourcemap: true
     },
-    optimizeDeps: {
-        include: ['404.html'],
-      },
 }
