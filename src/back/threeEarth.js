@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as dat from "lil-gui";
-
+import data from "./bootstrap"
 /**
  * Base
  */
@@ -25,7 +25,6 @@ const material = new THREE.MeshBasicMaterial( {
 map :earthTexture } ); 
 const sphere = new THREE.Mesh( geometry, material );
 scene.add( sphere );
-
 
 /**
  * Sizes
@@ -97,5 +96,5 @@ const tick = () => {
   // Call tick again on the next frame
   window.requestAnimationFrame(tick);
 };
-
+console.log(data)
 tick();
