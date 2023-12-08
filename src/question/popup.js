@@ -2,10 +2,11 @@ import config from "../back/config"
 
 let questions = config.questions;
 
-let popup = document.getElementsByClassName("containerPopup")[0];
+let popup = document.getElementById("popup");
+let response = document.getElementById("reponse");
 let oui = document.getElementById("oui");
 let non = document.getElementById("non");
-let intitule = document.getElementById("intitule");
+let intituleQuestion = document.getElementById("question");
 let index;
 
 oui.addEventListener("click", handleResponse);
@@ -28,32 +29,27 @@ function timerEvent() {
 function displayPopup() {
   index = Math.floor(Math.random() * (questions.length));
   console.log(index);
-  intitule.innerText = questions[index].intitule;
-  popup.style.display="block";
-  response.style.display="block";
+  intituleQuestion.innerText = questions[index].intitule;
+  popup.style.display="flex";
+  response.style.display="flex";
 }
 
 function undisplayPopup() {
-  popup.style.display="none";
+  popup.style.display = "none";
   timerEvent(); 
 }
 
 function handleResponse(event) {
   let reponse = event.target.id;
-  /*console.log(reponse);
-  console.log(index);
-  console.log(questions[index].reponse)
-  console.log("test " + reponse + " " + questions[index].reponse)
-  console.log(reponse==questions[index].reponse)*/
 
   if(reponse==questions[index].reponse) {
-    console.log("bravo");
+    intituleQuestion.innerText = "Bonne Réponse !";
   }
   else if(reponse!=questions[index].reponse) {
-    console.log("Nul");
+    intituleQuestion.innerText = "Mauvaise Réponse !";
   }
   questions.splice(index, 1);
 
   response.style.display="none";
-  setTimeout(undisplayPopup, 3000);
+  setTimeout(undisplayPopup, 1000);
 }

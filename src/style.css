@@ -31,11 +31,11 @@ body
 h1{
     padding-left: 2vw;
     color: white;
-    font-family: 'MaPolice', sans-serif;;
 }
 
 body{
     display: block;
+    font-family: 'MaPolice', sans-serif;
 }
 
 .barres{
@@ -105,3 +105,61 @@ align-items: center;
     left: 0;
     outline: none;
 }
+
+#popup{
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #0D2622;
+    width: 22%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+
+}
+
+
+#question{
+    display:flex;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFFFF;
+    margin:5%;
+}
+
+#reponse{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 50px;
+    margin-left:7%;
+    margin-right:7%;
+    
+    margin-bottom: 5%;
+}
+
+.rep{
+    display:flex;
+    background: #0D2622;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #FFFFFF;
+    margin:auto;
+    padding-left:2%;
+    padding-right:2%;
+    border-radius: 10px;
+}
+
+.rep:hover{
+    cursor:pointer;
+}
+
