@@ -1,4 +1,4 @@
-module.export = class {
+export default class {
 
     constructor(limit) {
         this.limit = limit
@@ -8,14 +8,14 @@ module.export = class {
         return this.limit
     }
     pushFactory(factory){
-        if(this.factories.length == limit){
+        if(this.getLength >= this.getLimit()){
             return false
         }
         this.factories.push(factory)
         return true
     }
     popFactory() {
-        this.factories.pop()
+        return this.factories.pop()
     }
     getLength(){
         return this.factories.length

@@ -1,7 +1,8 @@
-module.export = {
+const config = {
     earth: {
         maxHealth: 11111,
-        maxGES: 11111
+        maxGES: 11111,
+        healthDamage: 1
     },
     categories: [
         {
@@ -21,3 +22,5 @@ module.export = {
     ]
     
 }
+
+export default config
