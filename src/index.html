@@ -4,21 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galaxy Generator</title>
-    <link rel="stylesheet" href="./question/style.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./img/planete-export.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="containerPopup">
-        <div class="popup">
-            <p id="intitule"><br></p>
-            <div id="response">
-                <button id="oui">Oui</button>
-                <button id="non">Non</button>
-            </div>
-        </div>
     <title>Terra Idle</title>
-
     <navbar class="nav">
         <div class="logo"><img src="./img/planete-export.png" alt=""></div>
         <div>
@@ -45,6 +35,16 @@
         </div>
        
     </div>
+
+        <div id="popup">
+                <div id="question"></div>
+                <div id="reponse">
+                    <div id="oui" class="rep">Oui</div>
+                    <div id="non" class="rep">Non</div>
+                </div>
+        </div>
+
+
     <canvas class="webgl"></canvas>
     <script type="module" src="./back/threeEarth.js"></script>
     <script type="module" src="./question/popup.js"></script>
