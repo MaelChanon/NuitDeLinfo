@@ -1,5 +1,10 @@
 # Three.js Journey
 
+## Link
+Link to the site : https://terra-idle.vercel.app/
+
+Try to get a 404 error, you'll get surprise ! (for exemple : https://terra-idle.vercel.app/thisisa404error)
+
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
 Run this followed commands:
